@@ -1,0 +1,98 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<section class="content">
+
+    <div class="container-fluid">
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <h3 class="card-title">
+                    Equipos Registrados
+                </h3>
+
+            </div>
+
+            <div class="card-body">
+
+                <a href="/equipos/nuevo" 
+                class="btn btn-primary mb-3">
+                    Nuevo Equipo
+
+                </a>
+
+                <table class="table table-bordered table-hover">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Hostname</th>
+                            <th>IP</th>
+                            <th>Sistema Operativo</th>
+                            <th>Estado</th>
+                            <th>Último Check-in</th>
+                            <th>Acciones</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for equipo in equipos %}
+
+                        <tr>
+
+                            <td>{{ equipo.id }}</td>
+
+                            <td>{{ equipo.hostname }}</td>
+
+                            <td>{{ equipo.ip }}</td>
+
+                            <td>{{ equipo.sistema_operativo }}</td>
+
+                            <td>{{ equipo.estado }}</td>
+
+                            <td>{{ equipo.ultimo_checkin }}</td>
+
+                            <td>
+
+                                <a href="/equipos/editar/{{ equipo.id }}"
+                                class="btn btn-warning btn-sm">
+
+                                    Editar
+
+                                </a>
+
+                                <a href="/equipos/eliminar/{{ equipo.id }}"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('¿Eliminar equipo?')">
+
+                                    Eliminar
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

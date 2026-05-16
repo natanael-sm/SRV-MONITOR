@@ -1,0 +1,86 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<section class="content">
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <!-- TOTAL EQUIPOS -->
+            <div class="col-lg-4">
+
+                <div class="small-box bg-info">
+
+                    <div class="inner">
+
+                        <h3>{{ total_equipos }}</h3>
+
+                        <p>Total Equipos</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                        <i class="fas fa-desktop"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ONLINE -->
+            <div class="col-lg-4">
+
+                <div class="small-box bg-success">
+
+                    <div class="inner">
+
+                        <h3>{{ equipos_online }}</h3>
+
+                        <p>Equipos Online</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                        <i class="fas fa-check-circle"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- OFFLINE -->
+            <div class="col-lg-4">
+
+                <div class="small-box bg-danger">
+
+                    <div class="inner">
+
+                        <h3>{{ equipos_offline }}</h3>
+
+                        <p>Equipos Offline</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                        <i class="fas fa-times-circle"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

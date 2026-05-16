@@ -1,0 +1,113 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<section class="content">
+
+    <div class="container-fluid">
+
+        <div class="card card-warning">
+
+            <div class="card-header">
+
+                <h3 class="card-title">
+                    Editar Equipo
+                </h3>
+
+            </div>
+
+            <form action="/equipos/actualizar/{{ equipo.id }}"
+                  method="POST">
+
+                <div class="card-body">
+
+                    <div class="form-group">
+
+                        <label>Hostname</label>
+
+                        <input type="text"
+                               name="hostname"
+                               class="form-control"
+                               value="{{ equipo.hostname }}"
+                               required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>IP</label>
+
+                        <input type="text"
+                               name="ip"
+                               class="form-control"
+                               value="{{ equipo.ip }}"
+                               required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Sistema Operativo</label>
+
+                        <input type="text"
+                               name="sistema_operativo"
+                               class="form-control"
+                               value="{{ equipo.sistema_operativo }}"
+                               required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Estado</label>
+
+                        <select name="estado"
+                                class="form-control">
+
+                            <option
+                                {% if equipo.estado == 'Online' %}
+                                selected
+                                {% endif %}>
+                                Online
+                            </option>
+
+                            <option
+                                {% if equipo.estado == 'Offline' %}
+                                selected
+                                {% endif %}>
+                                Offline
+                            </option>
+
+                            <option
+                                {% if equipo.estado == 'Mantenimiento' %}
+                                selected
+                                {% endif %}>
+                                Mantenimiento
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+
+                    <button type="submit"
+                            class="btn btn-warning">
+
+                        Actualizar Equipo
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
