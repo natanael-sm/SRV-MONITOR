@@ -18,8 +18,9 @@
 
             <div class="card-body">
 
-                <a href="/equipos/nuevo" 
+                <a href="/equipos/nuevo"
                 class="btn btn-primary mb-3">
+
                     Nuevo Equipo
 
                 </a>
@@ -35,6 +36,11 @@
                             <th>IP</th>
                             <th>Sistema Operativo</th>
                             <th>Estado</th>
+
+                            <th>CPU</th>
+                            <th>RAM</th>
+                            <th>DISCO</th>
+
                             <th>Último Check-in</th>
                             <th>Acciones</th>
 
@@ -57,6 +63,116 @@
                             <td>{{ equipo.sistema_operativo }}</td>
 
                             <td>{{ equipo.estado }}</td>
+
+                            <!-- CPU -->
+                            <td>
+
+                            <!-- CPU -->
+                            <td>
+
+                                {% if equipo.cpu_actual is not none %}
+
+                                    {% if equipo.cpu_actual >= 90 %}
+
+                                        <span class="badge badge-danger">
+                                            {{ equipo.cpu_actual }}%
+                                        </span>
+
+                                    {% elif equipo.cpu_actual >= 70 %}
+
+                                        <span class="badge badge-warning">
+                                            {{ equipo.cpu_actual }}%
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="badge badge-success">
+                                            {{ equipo.cpu_actual }}%
+                                        </span>
+
+                                    {% endif %}
+
+                                {% else %}
+
+                                    <span class="badge badge-secondary">
+                                        Sin datos
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <!-- RAM -->
+                            <td>
+
+                                {% if equipo.ram_actual is not none %}
+
+                                    {% if equipo.ram_actual >= 90 %}
+
+                                        <span class="badge badge-danger">
+                                            {{ equipo.ram_actual }}%
+                                        </span>
+
+                                    {% elif equipo.ram_actual >= 70 %}
+
+                                        <span class="badge badge-warning">
+                                            {{ equipo.ram_actual }}%
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="badge badge-success">
+                                            {{ equipo.ram_actual }}%
+                                        </span>
+
+                                    {% endif %}
+
+                                {% else %}
+
+                                    <span class="badge badge-secondary">
+                                        Sin datos
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <!-- DISCO -->
+                            <td>
+
+                                {% if equipo.disco_actual is not none %}
+
+                                    {% if equipo.disco_actual >= 90 %}
+
+                                        <span class="badge badge-danger">
+                                            {{ equipo.disco_actual }}%
+                                        </span>
+
+                                    {% elif equipo.disco_actual >= 70 %}
+
+                                        <span class="badge badge-warning">
+                                            {{ equipo.disco_actual }}%
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="badge badge-success">
+                                            {{ equipo.disco_actual }}%
+                                        </span>
+
+                                    {% endif %}
+
+                                {% else %}
+
+                                    <span class="badge badge-secondary">
+                                        Sin datos
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            </td>
 
                             <td>{{ equipo.ultimo_checkin }}</td>
 
