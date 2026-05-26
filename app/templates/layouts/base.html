@@ -94,7 +94,7 @@
                     <!-- Alertas -->
                     <li class="nav-item">
 
-                        <a href="#" class="nav-link">
+                        <a href="/alertas" class="nav-link">
 
                             <i class="nav-icon fas fa-exclamation-triangle"></i>
 
@@ -140,4 +140,13 @@
 <script src="{{ url_for('static', filename='dist/js/adminlte.min.js') }}"></script>
 
 </body>
+<script>
+
+    setInterval(function() {
+
+        location.reload();
+
+    }, 30000);
+
+</script>
 </html>

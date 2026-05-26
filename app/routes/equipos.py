@@ -18,22 +18,23 @@ def listar_equipos():
 
     for equipo in equipos:
 
-        # SI NO TIENE CHECK-IN
-        if equipo.ultimo_checkin is None:
+        if equipo.ultimo_checkin:
 
-            equipo.estado = 'Offline'
-            continue
+            diferencia = ahora - equipo.ultimo_checkin
 
-        diferencia = ahora - equipo.ultimo_checkin
+            minutos = diferencia.total_seconds() / 60
 
-        # SI EL CHECK-IN FUE HACE MÁS DE 24 HORAS
-        if diferencia > timedelta(minutes=1440):
+            if minutos <= 5:
 
-            equipo.estado = 'Offline'
+                equipo.estado = 'Online'
+
+            else:
+
+                equipo.estado = 'Offline'
 
         else:
 
-            equipo.estado = 'Online'
+            equipo.estado = 'Offline'
 
     db.session.commit()
 

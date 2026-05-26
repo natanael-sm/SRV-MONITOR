@@ -36,11 +36,9 @@
                             <th>IP</th>
                             <th>Sistema Operativo</th>
                             <th>Estado</th>
-
                             <th>CPU</th>
                             <th>RAM</th>
                             <th>DISCO</th>
-
                             <th>Último Check-in</th>
                             <th>Acciones</th>
 
@@ -62,10 +60,23 @@
 
                             <td>{{ equipo.sistema_operativo }}</td>
 
-                            <td>{{ equipo.estado }}</td>
-
-                            <!-- CPU -->
                             <td>
+
+                                {% if equipo.estado == 'Online' %}
+
+                                    <span class="badge badge-success">
+                                        Online
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="badge badge-danger">
+                                        Offline
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
 
                             <!-- CPU -->
                             <td>
@@ -169,8 +180,6 @@
                                     </span>
 
                                 {% endif %}
-
-                            </td>
 
                             </td>
 

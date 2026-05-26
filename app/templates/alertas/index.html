@@ -1,0 +1,96 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<section class="content">
+
+    <div class="container-fluid">
+
+        <div class="card card-danger">
+
+            <div class="card-header">
+
+                <h3 class="card-title">
+                    Historial de Alertas
+                </h3>
+
+            </div>
+
+            <div class="card-body">
+
+                <table class="table table-bordered table-hover">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Equipo</th>
+                            <th>Tipo</th>
+                            <th>Mensaje</th>
+                            <th>Severidad</th>
+                            <th>Fecha</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for alerta in alertas %}
+
+                        <tr>
+
+                            <td>{{ alerta.id }}</td>
+
+                            <td>
+                                {{ alerta.equipo.hostname }}
+                            </td>
+
+                            <td>
+                                {{ alerta.tipo }}
+                            </td>
+
+                            <td>
+                                {{ alerta.mensaje }}
+                            </td>
+
+                            <td>
+
+                                {% if alerta.severidad == 'Critical' %}
+
+                                    <span class="badge bg-danger">
+                                        Critical
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="badge bg-warning">
+                                        Warning
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <td>
+                                {{ alerta.fecha }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

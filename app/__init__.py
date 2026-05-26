@@ -19,10 +19,14 @@ def create_app():
     from app.routes.dashboard import dashboard_bp
     from app.routes.equipos import equipos_bp
     from app.routes.api.checkin import api_bp
+    from app.models.metrica import Metrica
+    from app.models.alerta import Alerta
+    from app.routes.alertas import alertas_bp
 
     # BLUEPRINTS
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(equipos_bp)
     app.register_blueprint(api_bp)
+    app.register_blueprint(alertas_bp)
 
     return app

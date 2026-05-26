@@ -16,3 +16,15 @@ class Equipo(db.Model):
     cpu_actual = db.Column(db.Float, default=0)
     ram_actual = db.Column(db.Float, default=0)
     disco_actual = db.Column(db.Float, default=0)
+
+    metricas = db.relationship(
+    'Metrica',
+    backref='equipo',
+    lazy=True
+    )
+
+    alertas = db.relationship(
+    'Alerta',
+    backref='equipo',
+    lazy=True
+    )
